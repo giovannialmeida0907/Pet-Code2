@@ -1,6 +1,6 @@
 <?php
 // Inclui as variáveis de configuração e a função conectar_banco()
-require_once('conexao/conexao.php');
+require_once('conexao.php');
 
 // Inicia a sessão para armazenar mensagens de feedback
 session_start();
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
         error_log("Tentativa de cadastro - Nome: $nome, Email: $email, Senha: $senha");
         
         // Por enquanto, vamos salvar a senha em texto puro para testar
-        $sql = "INSERT INTO $table_name (nome, email, senha) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO $table_name (nome, email, senha_hash) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
         
         if ($stmt === false) {
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
     error_log("Tentativa de login - Email: $email_login, Senha: $senha_login");
 
-    $sql = "SELECT id, nome, senha FROM $table_name WHERE email = ?";
+    $sql = "SELECT id, nome, senha_hash FROM $table_name WHERE email = ?";
     $stmt = $conn->prepare($sql);
     
     if ($stmt === false) {
@@ -79,12 +79,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             $user = $result->fetch_assoc();
             
             error_log("Usuário encontrado: " . $user['nome']);
-            error_log("Senha no banco: " . $user['senha']);
+            error_log("Senha no banco: " . $user['senha_hash']);
             error_log("Senha digitada: " . $senha_login);
-            error_log("São iguais? " . ($user['senha'] === $senha_login ? 'SIM' : 'NÃO'));
+            error_log("São iguais? " . ($user['senha_hash'] === $senha_login ? 'SIM' : 'NÃO'));
             
             // Comparação direta (texto puro)
-            if ($user['senha'] === $senha_login) {
+            if ($user['senha_hash'] === $senha_login) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_nome'] = $user['nome'];
                 
