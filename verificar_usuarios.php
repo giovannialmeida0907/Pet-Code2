@@ -1,5 +1,5 @@
 <?php
-require_once('conexao/conexao.php');
+require_once('conexao.php');
 
 $conn = conectar_banco();
 global $table_name;

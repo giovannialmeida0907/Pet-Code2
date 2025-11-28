@@ -27,7 +27,7 @@
             <nav class="nav">
                 <ul>
                     <li><a href="index.html">Início</a></li>
-                    <li><a href="serviços.html">Serviços</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="login.php">Cadastrar</a></li>
                     <li><a href="comunidade.html">Comunidade</a></li>
                     <li><a href="contato.html">Contato</a></li>
@@ -95,15 +95,15 @@
 
 <section class="videos-conscientizacao" class="todo">
     <div class="video" class="todo">
-        <iframe src="https://www.youtube.com/embed/VIDEO1" allowfullscreen></iframe>
+       <iframe src="https://www.youtube.com/embed/PAiMcx1fUS0" allowfullscreen></iframe>
     </div>
 
     <div class="video" class="todo" class="todo">
-        <iframe src="https://www.youtube.com/embed/VIDEO2" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/BBtg_AHe_1w" allowfullscreen></iframe>
     </div>
 
     <div class="video" class="todo">
-        <iframe src="https://www.youtube.com/embed/VIDEO3" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/rN4oMBhA8QE" allowfullscreen></iframe>
     </div>
 </section>
 

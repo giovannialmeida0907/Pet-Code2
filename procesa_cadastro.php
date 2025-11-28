@@ -1,5 +1,5 @@
 <?php
-require_once('conexao/conexao.php');
+require_once('conexao.php');
 
 // A variável $table_name é carregada de conexao.php
 global $table_name; 
